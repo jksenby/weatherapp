@@ -4,7 +4,9 @@
   "description": "This is simple application to dynamically display the weather that use OpenWeatherAPI",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "ng": "ng",
+    "start": "ng serve",
+    "build": "ng build"
   },
   "repository": {
     "type": "git",
@@ -17,6 +19,21 @@
   },
   "homepage": "https://github.com/jksenby/weatherapp#readme",
   "dependencies": {
-    "express": "^4.18.2"
+    "express": "^4.18.2",
+    "@angular/common": "~17.0.0",
+    "@angular/compiler": "~17.0.0",
+    "@angular/core": "~17.0.0",
+    "@angular/forms": "~17.0.0",
+    "@angular/platform-browser": "~17.0.0",
+    "@angular/platform-browser-dynamic": "~17.0.0",
+    "@angular/router": "~17.0.0",
+    "rxjs": "~7.8.0",
+    "zone.js": "~0.14.2"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "~17.0.0",
+    "@angular/cli": "~17.0.0",
+    "@angular/compiler-cli": "~17.0.0",
+    "typescript": "~5.2.2"
   }
 }

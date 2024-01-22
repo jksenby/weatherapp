@@ -3,8 +3,7 @@ const weatherInfo = document.querySelector("#weatherInfo");
 const cityName = document.querySelector("#cityName");
 form.addEventListener("submit", (e) => {
   e.preventDefault();
-  weatherInfo.innerHTML = `<i class="fa-solid fa-spinner fa-spin-pulse fa-2xl   "></i>`;
-  const _apiKey = "da3ac2462a97bb568fd9e123732c9d5e";
+  weatherInfo.innerHTML = `<i class="fa-solid fa-spinner fa-spin-pulse fa-2xl"></i>`;
   const options = {
     method: "GET",
     headers: {
@@ -34,7 +33,7 @@ form.addEventListener("submit", (e) => {
     const astana = res[0];
     const getResource = async () => {
       try {
-        const url = `api.openweathermap.org/data/2.5/forecast/daily?lat={lat}&lon={lon}&cnt={cnt}&appid=${_apiKey}`;
+        const url = `api.openweathermap.org/data/2.5/forecast/daily?lat=${astana.lat}&lon=${astana.lon}&cnt=7&appid=${_apiKey}`;
         const response = await fetch(url, options);
         if (!response.ok)
           throw new Error(`Could not fetch ${url}, status: ${response.status}`);
