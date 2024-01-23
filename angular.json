@@ -1,46 +1,47 @@
 {
-    "version": 1,
-    "projects": {
-      "weatherapp": {
-        "projectType": "application",
-        "root": "",
-        "sourceRoot": "src",
-        "architect": {
-          "build": {
-            "builder": "@angular-devkit/build-angular:browser",
-            "options": {
-              "outputPath": "dist/weatherapp",
-              "index": "src/index.html",
-              "main": "src/main.ts",
-              "polyfills": ["zone.js"],
-              "tsConfig": "tsconfig.json",
-              "aot": true
-            },
-            "configurations": {
-              "production": {
-                "optimization": true,
-                "outputHashing": "all",
-                "sourceMap": false,
-                "namedChunks": false,
-                "vendorChunk": false,
-                "buildOptimizer": true
-              },
-              "development": {
-                "optimization": false,
-                "sourceMap": true
-              }
-            }
+  "version": 1,
+  "projects": {
+    "weatherapp": {
+      "projectType": "application",
+      "root": "",
+      "sourceRoot": "src",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/weatherapp",
+            "index": "src/index.html",
+            "main": "src/main.ts",
+            "polyfills": ["zone.js"],
+            "tsConfig": "tsconfig.json",
+            "aot": true,
+            "assets": ["src/assets/images", "src/favicon.svg"]
           },
-          "serve": {
-            "builder": "@angular-devkit/build-angular:dev-server",
-            "options": {
-              "buildTarget": "weatherapp:build"
+          "configurations": {
+            "production": {
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "vendorChunk": false,
+              "buildOptimizer": true
+            },
+            "development": {
+              "optimization": false,
+              "sourceMap": true
             }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "buildTarget": "weatherapp:build"
           }
         }
       }
-    },
-    "cli": {
-      "analytics": false
     }
+  },
+  "cli": {
+    "analytics": false
   }
+}

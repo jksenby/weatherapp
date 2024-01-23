@@ -81,7 +81,6 @@ form.addEventListener("submit", (e) => {
 
         return day + " " + monthNames[month] + " " + hours + ":" + minutes;
       }
-
       const time = formatTimeDifference(res.timezone);
 
       weatherInfo.innerHTML = res

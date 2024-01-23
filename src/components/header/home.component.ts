@@ -16,13 +16,31 @@ export class HomeComponent {
   _apiKey: string = "da3ac2462a97bb568fd9e123732c9d5e";
 
   searchResult: boolean = false;
-  cityName: string;
+  cityName: string = localStorage.getItem("defaultCityName");
   cityWeatherData;
 
-  constructor(private cityWeather: CityWeatherService) {}
+  monthNames = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
 
-  async onSubmitCityName($event) {
-    $event.preventDefault();
+  constructor(private cityWeather: CityWeatherService) {
+    if (localStorage.getItem("defaultCityName")) this.onSubmitCityName();
+  }
+
+  async onSubmitCityName($event = null) {
+    if ($event) $event.preventDefault();
+    localStorage.setItem("defaultCityName", this.cityName);
     await this.cityWeather
       .getWeatherData(this.cityName, this._apiKey)
       .subscribe({ next: (data: any) => (this.cityWeatherData = data) });
@@ -63,4 +81,5 @@ export class HomeComponent {
 
     return day + " " + monthNames[month] + " " + hours + ":" + minutes;
   }
+  Date = Date;
 }
