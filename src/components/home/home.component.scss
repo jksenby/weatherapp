@@ -1,0 +1,23 @@
+
+li {
+    display: inline-block;
+    margin-right: 0;
+}
+.list {
+    float: left;
+    width: 100%;
+    background-color: rgba(192, 192, 192, 0.2);
+    border: 1px solid silver;
+    border-radius: 8px;
+}
+
+@media screen and (min-width: 1400px) {
+    .container,
+    .container-lg,
+    .container-md,
+    .container-sm,
+    .container-xl,
+    .container-xxl {
+        max-width: 1700px;
+    }
+}

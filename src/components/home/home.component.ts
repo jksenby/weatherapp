@@ -13,8 +13,6 @@ import { CommonModule } from "@angular/common";
   providers: [CityWeatherService],
 })
 export class HomeComponent {
-  _apiKey: string = "da3ac2462a97bb568fd9e123732c9d5e";
-
   searchResult: boolean = false;
   cityName: string = localStorage.getItem("defaultCityName");
   cityWeatherData;
@@ -42,30 +40,13 @@ export class HomeComponent {
     if ($event) $event.preventDefault();
     localStorage.setItem("defaultCityName", this.cityName);
     await this.cityWeather
-      .getWeatherData(this.cityName, this._apiKey)
+      .getWeatherData(this.cityName)
       .subscribe({ next: (data: any) => (this.cityWeatherData = data) });
   }
   log() {
     console.log(this.cityWeatherData);
   }
-  formatTimeDifference(timeDifferenceInSeconds) {
-    let timeDifferenceInMillis = timeDifferenceInSeconds * 1000;
 
-    let currentDate = new Date();
-
-    currentDate.setTime(currentDate.getTime() + timeDifferenceInMillis);
-
-    let day = currentDate.getUTCDate().toString();
-    let month = currentDate.getUTCMonth().toString();
-    let hours = currentDate.getUTCHours().toString();
-    let minutes = currentDate.getUTCMinutes().toString();
-
-    day = +day < 10 ? "0" + day : day;
-    hours = +hours < 10 ? "0" + hours : hours;
-    minutes = +minutes < 10 ? "0" + minutes : minutes;
-
-    return day + " " + this.monthNames[month] + " " + hours + ":" + minutes;
-  }
   getDay(day) {
     const weekdays = [
       "Sunday",
