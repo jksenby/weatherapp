@@ -24,6 +24,7 @@
           </div>
           <li *ngFor="let item of cityWeatherData.list" style="margin: 20px">
             <div class="card" style="width: 18rem; display: inline-block">
+              <h2>{{ getDay(item.dt_txt) }}</h2>
               <img
                 class="card-img-top"
                 [src]="
@@ -69,3 +70,4 @@
     </div>
   </div>
 </main>
+<button class="btn btn-warning" (click)="log()">log</button>

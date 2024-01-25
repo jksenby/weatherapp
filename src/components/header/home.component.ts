@@ -64,22 +64,18 @@ export class HomeComponent {
     hours = +hours < 10 ? "0" + hours : hours;
     minutes = +minutes < 10 ? "0" + minutes : minutes;
 
-    var monthNames = [
-      "January",
-      "February",
-      "March",
-      "April",
-      "May",
-      "June",
-      "July",
-      "August",
-      "September",
-      "October",
-      "November",
-      "December",
-    ];
-
-    return day + " " + monthNames[month] + " " + hours + ":" + minutes;
+    return day + " " + this.monthNames[month] + " " + hours + ":" + minutes;
   }
-  Date = Date;
+  getDay(day) {
+    const weekdays = [
+      "Sunday",
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+    ];
+    return weekdays[new Date(day).getDay()];
+  }
 }
