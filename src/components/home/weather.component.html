@@ -21,16 +21,16 @@
             class="form-control"
             [(ngModel)]="cityName"
           />
-          <button class="btn btn-primary">Submit</button>
+          <button style="margin: 10px 0" class="btn btn-primary">Submit</button>
+          <div *ngIf="cityWeatherData" style="width: 100%; text-align: center">
+            <h1>{{ cityWeatherData.city.name }}</h1>
+          </div>
         </form>
         <ul
           *ngIf="searchResult; else notFound"
           style="display: -ms-grid"
           class="container-fluid list"
         >
-          <div style="width: 100%; text-align: center">
-            <h1>{{ cityWeatherData.city.name }}</h1>
-          </div>
           <li *ngFor="let item of cityWeatherData.list" style="margin: 20px">
             <div class="card" style="width: 18rem; display: inline-block">
               <h2>{{ getDay(item.dt_txt) }}</h2>

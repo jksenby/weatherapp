@@ -10,11 +10,11 @@ import { catchError } from "rxjs";
   selector: "weather-app-home",
   standalone: true,
   imports: [FormsModule, HttpClientModule, CommonModule],
-  templateUrl: "./home.component.html",
-  styleUrls: ["./home.component.scss"],
+  templateUrl: "./weather.component.html",
+  styleUrls: ["./weather.component.scss"],
   providers: [CityWeatherService],
 })
-export class HomeComponent {
+export class WeatherComponent {
   searchResult: boolean = false;
   cityName: string = localStorage.getItem("defaultCityName");
   cityWeatherData;
