@@ -15,6 +15,10 @@ import { NgIf } from "@angular/common";
 })
 export class MapComponent implements OnInit {
   cityData: any;
+  cityName: string;
+
+  searchLat;
+  searchLon;
 
   monthNames = [
     "January",
@@ -54,9 +58,19 @@ export class MapComponent implements OnInit {
   }
 
   onMapClick(event) {
-    const [lat, lon] = event.target._yandexState._model.center;
+    console.log(event.target);
+    const [lat, lon] = event.target._yandexState._model.bounds[1];
     this.cityWeather.getCurrentWeather(lat, lon).subscribe({
       next: (data: any) => (this.cityData = data),
+    });
+  }
+  onSubmitCityName(e) {
+    e.preventDefault();
+    this.cityWeather.getCity(this.cityName).subscribe({
+      next: (data: any) => {
+        this.searchLat = data[0].lat;
+        this.searchLon = data[0].lon;
+      },
     });
   }
 }
