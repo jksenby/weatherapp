@@ -1,0 +1,49 @@
+<div class="container text-center">
+  <div class="row">
+    <div class="col-lg-1" style="width: 100%">
+      <form>
+        <input
+          type="text"
+          class="form-control"
+          required
+          [(ngModel)]="from"
+          placeholder="From..."
+        />
+        <input
+          type="text"
+          class="form-control"
+          required
+          [(ngModel)]="to"
+          placeholder="To..."
+        />
+        <input
+          type="date"
+          class="form-control"
+          required
+          [(ngModel)]="departureDate"
+          placeholder="Departure Date"
+        />
+        <input
+          type="number"
+          placeholder="Number of adults"
+          required
+          [(ngModel)]="adults"
+        />
+        <input
+          type="number"
+          placeholder="Number of children"
+          required
+          [(ngModel)]="childs"
+        />
+        <input
+          type="number"
+          placeholder="Number of infants"
+          required
+          [(ngModel)]="infants"
+        />
+        <select name="" id=""></select>
+        <button class="btn btn-primary" (submit)="log()">log</button>
+      </form>
+    </div>
+  </div>
+</div>
